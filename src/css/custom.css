@@ -1,0 +1,28 @@
+/* Reactive Actors docs theme */
+:root {
+  --ifm-color-primary: #c2410c;
+  --ifm-color-primary-dark: #af3b0b;
+  --ifm-color-primary-darker: #a5370a;
+  --ifm-color-primary-darkest: #882d08;
+  --ifm-color-primary-light: #d5470d;
+  --ifm-color-primary-lighter: #df4b0e;
+  --ifm-color-primary-lightest: #f1612a;
+  --ifm-code-font-size: 92%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #fb923c;
+  --ifm-color-primary-dark: #fa7f1d;
+  --ifm-color-primary-darker: #fa760d;
+  --ifm-color-primary-darkest: #d75d05;
+  --ifm-color-primary-light: #fca55b;
+  --ifm-color-primary-lighter: #fcae6b;
+  --ifm-color-primary-lightest: #fdc897;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Reference tables: keep the first column (names) from wrapping awkwardly */
+.markdown table td:first-child {
+  white-space: nowrap;
+}
