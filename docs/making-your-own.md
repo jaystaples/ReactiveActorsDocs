@@ -2,7 +2,7 @@
 id: making-your-own
 title: "Making Your Own"
 sidebar_label: "Making Your Own"
-sidebar_position: 6
+sidebar_position: 7
 description: "Write your own actions, requirements, rules and triggers in Blueprint or C++."
 ---
 
@@ -120,7 +120,7 @@ Validate Settings checks each *placed* copy of your block, with the settings it 
 
 ## Remembering things across saves: SaveGame
 
-If a rule, trigger or action keeps something between runs (a count, an "already done" flag), tick **SaveGame** on that variable (in its details, under Advanced). It's then saved and loaded with the level. Nothing else is needed.
+If a rule, trigger or action keeps something between runs (a count, an "already done" flag), tick **SaveGame** on that variable (in its details, under Advanced). It's then saved and loaded with the level. Nothing else is needed. See [Save and Load](./save-and-load.md) for how the level's state reaches your save.
 
 | Save it | Don't save it (Data Validation warns) |
 | --- | --- |

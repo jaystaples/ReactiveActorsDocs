@@ -2,7 +2,7 @@
 id: debugging-and-settings
 title: "Debugging and Settings"
 sidebar_label: "Debugging and Settings"
-sidebar_position: 7
+sidebar_position: 8
 description: "The debug overlay, console commands, validation, logging and Project Settings."
 ---
 

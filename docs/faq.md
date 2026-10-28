@@ -2,7 +2,7 @@
 id: faq
 title: "FAQ and Troubleshooting"
 sidebar_label: "FAQ and Troubleshooting"
-sidebar_position: 8
+sidebar_position: 9
 description: "Why didn't my reaction fire? And other common questions."
 ---
 
@@ -72,7 +72,7 @@ To measure it, type `stat Reactions` in the console while playing. It shows the 
 
 ## Does it save and load?
 
-Yes. Max Activations counts, Cooldown time left, reactions switched off, and any SaveGame variables in your own rules and triggers are saved. Reactions that were part-way through running start fresh after a load. The plugin hands you its state to store in whatever save system you use. See [Save and load](./guides.md#save-and-load) in Guides for the steps.
+Yes. Max Activations counts, Cooldown time left, reactions switched off, and any SaveGame variables in your own rules and triggers are saved. Reactions that were part-way through running start fresh after a load. The plugin hands you its state to store in whatever save system you use. See [Save and Load](./save-and-load.md) for the steps.
 
 ## Does it work in multiplayer?
 

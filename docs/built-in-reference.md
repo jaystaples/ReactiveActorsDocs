@@ -2,7 +2,7 @@
 id: built-in-reference
 title: "Built-in Reference"
 sidebar_label: "Built-in Reference"
-sidebar_position: 5
+sidebar_position: 6
 description: "Every built-in action, requirement, rule, trigger, placeable actor and Blueprint node."
 ---
 
@@ -120,7 +120,7 @@ Target Actor Identity reads the identity from the actor's Reaction Component, so
 | **Suspend Events** / **Resume Events** / **Are Events Suspended** | Ignore all events for a while (cutscenes, menus). |
 | **Cancel All Reactions** (and *For Actor*, *For Identity*, *For Event*) | Stop running reactions. |
 | **Reset All Reactions** (and *For Actor*, *For Identity*, *For Event*) | Reset reactions as if they'd never fired. Helpful for resetting things like Max Activations. |
-| **Get World Reaction State** / **Set World Reaction State** / **Clear World Reaction State** | Save and load: the current level's reaction state as one value, handed back after loading, or forgotten (New Game). See [Save and load](./guides.md#save-and-load) in Guides. |
+| **Get World Reaction State** / **Set World Reaction State** / **Clear World Reaction State** | Save and load: the current level's reaction state as one value, handed back after loading, or forgotten (New Game). See [Save and Load](./save-and-load.md). |
 | **Hold Reactions Until Restored** / **Release Held Reactions** | When loading a save after the level has started: triggers and Reactive Volumes wait until Set World Reaction State. |
 
 ### Listening

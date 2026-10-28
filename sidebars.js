@@ -6,6 +6,7 @@ const sidebars = {
     'getting-started',
     'core-concepts',
     'guides',
+    'save-and-load',
     'built-in-reference',
     'making-your-own',
     'debugging-and-settings',

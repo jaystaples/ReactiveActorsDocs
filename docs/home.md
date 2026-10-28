@@ -60,6 +60,7 @@ They mix well: a Flow graph, a Sequencer event or a Blueprint can send an event,
 - [Getting Started](./getting-started.md): install the plugin and build your first reaction, step by step.
 - [Core Concepts](./core-concepts.md): how events, reactions, actions and the rest fit together.
 - [Guides](./guides.md): recipes for common jobs, such as one-time scares, keys and doors, and randomness.
+- [Save and Load](./save-and-load.md): keep what reactions remember in your game's saves, with any save system.
 - [Built-in Reference](./built-in-reference.md): every action, requirement, rule and trigger, with its settings.
 - [Making Your Own](./making-your-own.md): write new actions, requirements, rules and triggers in Blueprint.
 - [Debugging and Settings](./debugging-and-settings.md): see what's happening while you play, and the project settings.

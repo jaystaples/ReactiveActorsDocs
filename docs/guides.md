@@ -150,63 +150,12 @@ From **On Event** you can call **Run Reaction Preset** to run a Reaction Preset'
 
 ## Save and load
 
-Reactive Actors remembers what happened in the current level: how many times a Max Activations rule has fired, how long a Cooldown has left, which reactions were switched off. It keeps that in memory as you play, including for parts of the level that have streamed out. Your game handles one value per level, **Reactive World State**, and stores it wherever it saves things: Unreal's own Save Game, SPUD or Easy Multi Save all treat it as an ordinary variable.
+Reactive Actors remembers what each reaction has done (Max Activations counts, Cooldowns, reactions switched off) and hands it to your game as one **Reactive World State** value per level, to store in whatever save system you use. In short:
 
-**What's saved:** each reaction's Enabled, Max Activations counts, Cooldown time left, Random Action's last pick, and any variable in your own rules, triggers or actions with **SaveGame** ticked (in the variable's details, under Advanced). Only actors where something happened are included.
+1. When saving, put **Get World Reaction State** in your save.
+2. When loading, call **Set World Reaction State** with it, before **Open Level** or in the Game Mode's **Begin Play**.
 
-**What isn't:** a reaction part-way through running. Nothing restarts on load: it's simply gone, so keep progress in data rather than in a reaction that's waiting (see [Multi-step goals](#multi-step-goals-quests), below).
-
-### The nodes
-
-| Node | Use it to |
-| --- | --- |
-| **Get World Reaction State** | Get the current level's state to put in your save |
-| **Set World Reaction State** | Hand a saved state back: before **Open Level**, or after the level has loaded |
-| **Clear World Reaction State** | Forget everything (New Game, chapter reset) |
-| **On World Reaction State Expiring** | An event on the Reactive State Cache: the level is ending, so store the state it gives you if you'll come back |
-| **Hold Reactions Until Restored** | Only if your save arrives a few frames after the level starts: nothing fires until Set World Reaction State |
-
-### Saving
-
-1. Add a **Reactive World State** variable to your save (with SaveGame ticked for SPUD and Easy Multi Save). For a game with several levels, use an **array** of them, one per level: each one knows its level (its **World Key**). Arrays work in every save system.
-2. When saving, set it from **Get World Reaction State**.
-3. To keep levels you've left: bind **On World Reaction State Expiring** (Get Reactive State Cache, then Bind Event) and store the state it gives you under its **World Key**.
-
-### Loading
-
-Find the saved Reactive World State for the level you're loading, then hand it back in one of two ways. Both stop Begin Play triggers from firing before the saved counts are back.
-
-- **Before Open Level:** load your save, call **Set World Reaction State**, then **Open Level**. Each actor gets its state as it begins play, before any trigger fires.
-- **After the level loads (works with any save system):** in the Game Mode's **Begin Play**, if you're loading a save, call **Hold Reactions Until Restored**. When your save system has finished loading, call **Set World Reaction State**: it puts the state back and releases what was held. With Unreal's own Save Game you can call both straight away in Begin Play.
-
-### Keeping saves working as the game changes
-
-- **Engine upgrades:** saved state records which engine version wrote it, and is read back the same way.
-- **Editing reactions:** reactions and triggers carry a hidden ID, so old saves still find them after you reorder the list. Saved state for a reaction, rule or action you've removed is skipped.
-- **Renaming classes:** renamed or moved Blueprint and C++ classes are followed through Unreal's redirects.
-- **What to tick SaveGame on:** plain values only (counts, flags, durations, names, tags). Data Validation warns about actor references and Timer Handles; see [Remembering things across saves](./making-your-own.md#remembering-things-across-saves-savegame) in Making Your Own.
-
-### Spawned actors
-
-Only actors **placed in a level** (including streamed sublevels and World Partition cells) are kept in Reactive World State. Actors spawned while playing aren't, because they come back with a different name and their saved state couldn't find them.
-
-To keep a spawned actor's reactions, let whatever re-spawns it carry them:
-
-1. Give the actor a **Reactive Actor State** variable with SaveGame ticked.
-2. Before saving (SPUD's pre-store callback, Easy Multi Save's pre-save event, or your own save code), set it from **Capture Reaction State** on its Reaction Component.
-3. When it's spawned again, call **Restore Reaction State** with it, in the actor's Begin Play.
-
-:::note
-
-This may change in a later version (for example a Save ID you give spawned actors). We'll update this section if it does.
-
-:::
-
-:::info[Don't need saving?]
-
-Do nothing: nothing is saved unless you call these nodes. Levels that stream out and back in still keep their reactions' state; untick **Keep State When Streamed Out** in Project Settings > Plugins > Reactive Actors > Save and Load if you'd rather they start fresh.
-
-:::
+Streaming and World Partition are handled for you. [Save and Load](./save-and-load.md) has the full setup: several levels, other save systems, spawned actors, and your own blocks.
 
 ## Multi-step goals (quests)
 

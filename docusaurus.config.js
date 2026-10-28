@@ -1,11 +1,11 @@
 // @ts-check
 // Reactive Actors documentation site.
-// Before deploying, set the four values marked SET ME (your GitHub user and repo names).
+// githubUser and repoName below must match the repo's address: github.com/<githubUser>/<repoName>
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
-const githubUser = 'YOUR-GITHUB-USER'; // SET ME
-const repoName = 'ReactiveActorsDocs'; // SET ME: the repo this site lives in
+const githubUser = 'jaystaples';
+const repoName = 'ReactiveActorsDocs'; // must match the repo name exactly, capitals included
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -13,11 +13,11 @@ const config = {
   tagline: 'Give any actor in your level its own behaviour, without a new Blueprint class.',
   favicon: 'img/favicon.svg',
 
-  url: `https://${githubUser}.github.io`, // SET ME if you use a custom domain
-  baseUrl: `/${repoName}/`, // SET ME: '/' for a custom domain or a <user>.github.io repo
+  url: `https://${githubUser}.github.io`,
+  baseUrl: `/${repoName}/`,
 
-  organizationName: 'JayStaples',
-  projectName: 'reactive-actors-docs',
+  organizationName: githubUser,
+  projectName: repoName,
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
