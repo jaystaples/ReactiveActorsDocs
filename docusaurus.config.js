@@ -5,7 +5,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 
 const githubUser = 'YOUR-GITHUB-USER'; // SET ME
-const repoName = 'reactive-actors-docs'; // SET ME: the repo this site lives in
+const repoName = 'ReactiveActorsDocs'; // SET ME: the repo this site lives in
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -17,7 +17,7 @@ const config = {
   baseUrl: `/${repoName}/`, // SET ME: '/' for a custom domain or a <user>.github.io repo
 
   organizationName: 'JayStaples',
-  projectName: 'ReactiveActorsDocs',
+  projectName: 'reactive-actors-docs',
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
