@@ -13,11 +13,11 @@ const config = {
   tagline: 'Give any actor in your level its own behaviour, without a new Blueprint class.',
   favicon: 'img/favicon.svg',
 
-  url: `https://${githubUser}.github.io`, // SET ME if you use a custom domain
-  baseUrl: `/${repoName}/`, // SET ME: '/' for a custom domain or a <user>.github.io repo
+  url: `https://${jaystaples}.github.io`, // SET ME if you use a custom domain
+  baseUrl: `/${reactive-actors-docs}/`, // SET ME: '/' for a custom domain or a <user>.github.io repo
 
   organizationName: githubUser,
-  projectName: repoName,
+  projectName: ReactiveActorsDocs,
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
